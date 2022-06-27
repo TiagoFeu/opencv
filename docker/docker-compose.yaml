@@ -1,7 +1,7 @@
 version: "3.3"
 services:
-  topsis:
-    container_name: 'opencv'
+  opencv:
+    container_name: 'street_test'
     command: bash -c "jupyter lab --notebook-dir=/home/opencv --ip='0.0.0.0' --port=8888 --no-browser --allow-root"
     build: .
     ports:
