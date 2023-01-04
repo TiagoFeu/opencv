@@ -1,10 +1,13 @@
-version: "3.3"
+version: "3.9"
 services:
-  opencv:
-    container_name: 'street_test'
-    command: bash -c "jupyter lab --notebook-dir=/home/opencv --ip='0.0.0.0' --port=8888 --no-browser --allow-root"
-    build: .
-    ports:
-      - '8888:8888'
+  plate-engine:
+    container_name: 'plate-detector-engine'
+    build:
+      context: .
+      shm_size: "2gb"
+    shm_size: "2gb"
+    runtime: nvidia
+    # command: bash -c "CUDA_LAUNCH_BLOCKING=1 python test.py"
+    tty: true
     volumes:
-      - ../:/home/opencv
+      - ../:/home/plate-engine
